@@ -52,8 +52,11 @@ jobs:
           name: Generate Semantic Release
           command: yarn semantic-release
       - run:
-          name: Setup worksapce
+          name: Setup workspace
           command: mkdir -p workspace
+      - run:
+          name: Build App
+          command: yarn build
       - run:
           name: Copy everything into the workspace
           command: cp -R build workspace/build && cp package.json workspace/package.json && cp release-info.txt workspace/release-info.txt
